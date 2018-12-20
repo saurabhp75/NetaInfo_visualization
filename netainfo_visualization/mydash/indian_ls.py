@@ -8,11 +8,12 @@ from dash.dependencies import Input, Output
 from cachetools import cached, TTLCache
 import plotly.graph_objs as go
 import geojson
+import geopandas as gpd
 
 cache = TTLCache(maxsize=100, ttl=300)
 
 # read ls election file
-df_ls = pd.read_csv('ls_cleaned1.csv')
+df_ls = pd.read_csv('ls_cleaned.csv')
 
 # read geojson file using geopandas
 india_map = gpd.read_file('india_criminal.geojson')
@@ -311,7 +312,7 @@ app.layout = html.Div([
             html.Div([
                 html.H1("Tab 2 content")
             ]),
-            html.Div(id='divgraph1', children=dcc.Graph(
+            html.Div(id='divgraph11', children=dcc.Graph(
                 id='graph4',
                 config={
                     'displayModeBar': False
